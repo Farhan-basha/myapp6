@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <header class="bg-white shadow-sm">
     <div class="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
       <div class="flex items-center gap-4">
@@ -37,7 +37,7 @@
         <!-- Logged in -->
         <div v-else class="flex items-center gap-3">
           <span class="text-sm text-gray-700">
-            {{ user?.email }}
+            {{ user?.name }}
           </span>
 
           <button
@@ -82,4 +82,4 @@ function logout() {
   localStorage.removeItem("user");
   router.push("/login");
 }
-</script>
+</script> -->

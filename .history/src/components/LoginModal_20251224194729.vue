@@ -75,8 +75,8 @@ const submit = async () => {
 
     const { user, token } = res.data;
 
-    localStorage.setItem("token", token);
-    localStorage.setItem("user", JSON.stringify(user));
+    // localStorage.setItem("token", token);
+    // localStorage.setItem("user", JSON.stringify(user));
 
     // 🔐 ROLE-BASED REDIRECT
     if (user.role === "ROLE_ADMIN") {

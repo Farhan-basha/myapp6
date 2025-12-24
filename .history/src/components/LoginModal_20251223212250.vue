@@ -75,8 +75,36 @@ const submit = async () => {
 
     const { user, token } = res.data;
 
-    localStorage.setItem("token", token);
-    localStorage.setItem("user", JSON.stringify(user));
+    // localStorage.setItem("token", token);
+    // localStorage.setItem("user", JSON.stringify(user));
+
+    const auth = useAuthStore();
+
+const submit = async () => {
+  error.value = null;
+
+  try {
+    const res = await api.post("/api/auth/login", {
+      email: email.value,
+      password: password.value,
+    });
+
+    // ✅ SINGLE SOURCE OF TRUTH
+    auth.login(res.data.user, res.data.token);
+
+    // 🔐 Role-based redirect
+    if (res.data.user.role === "ROLE_ADMIN") {
+      router.push("/dashboard");
+    } else {
+      router.push("/");
+    }
+
+    close();
+  } catch (e) {
+    error.value = "Failed to login.";
+  }
+};
+
 
     // 🔐 ROLE-BASED REDIRECT
     if (user.role === "ROLE_ADMIN") {

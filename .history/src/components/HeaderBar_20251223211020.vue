@@ -37,7 +37,7 @@
         <!-- Logged in -->
         <div v-else class="flex items-center gap-3">
           <span class="text-sm text-gray-700">
-            {{ user?.email }}
+            {{ user?.name }}
           </span>
 
           <button

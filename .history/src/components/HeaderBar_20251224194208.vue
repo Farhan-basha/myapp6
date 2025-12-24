@@ -13,7 +13,7 @@
 
         <!-- 🔐 ADMIN ONLY -->
         <RouterLink
-          v-if="isAdmin"
+          v-if="auth.isAdmin"
           class="hover:text-olive cursor-pointer"
           to="/dashboard"
         >
@@ -25,19 +25,19 @@
 
       <!-- AUTH ACTIONS -->
       <div>
-        <!-- Not logged in -->
+        <!-- NOT LOGGED IN -->
         <button
-          v-if="!isLoggedIn"
+          v-if="!auth.isLoggedIn"
           @click="openLogin"
           class="px-4 py-2 rounded-full border border-gray-300 text-gray-700"
         >
           Sign In
         </button>
 
-        <!-- Logged in -->
+        <!-- LOGGED IN -->
         <div v-else class="flex items-center gap-3">
           <span class="text-sm text-gray-700">
-            {{ user?.email }}
+            {{ auth.username }}
           </span>
 
           <button
@@ -53,33 +53,18 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
-import { useRouter } from "vue-router";
+import { useAuthStore } from "@/store/auth";
 import { openLogin } from "../store/ui";
+import { useRouter } from "vue-router";
 
+const auth = useAuthStore();
 const router = useRouter();
 
 /**
- * 🔐 Reactive user (computed from localStorage)
- * Vue will re-render navbar on login/logout
- */
-const user = computed(() => {
-  const stored = localStorage.getItem("user");
-  return stored ? JSON.parse(stored) : null;
-});
-
-/**
- * 🔐 Auth flags
- */
-const isLoggedIn = computed(() => !!localStorage.getItem("token"));
-const isAdmin = computed(() => user.value?.role === "ROLE_ADMIN");
-
-/**
- * 🔓 Logout
+ * 🔓 Logout (reactive)
  */
 function logout() {
-  localStorage.removeItem("token");
-  localStorage.removeItem("user");
+  auth.logout();        // ✅ updates Pinia state
   router.push("/login");
 }
 </script>

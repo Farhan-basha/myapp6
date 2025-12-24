@@ -59,36 +59,36 @@ function close() {
   closeModal();
 }
 
-const submit = async () => {
-  error.value = null;
+// const submit = async () => {
+//   error.value = null;
+//   console.log("success",email.value);
+//   if (!email.value || !password.value) {
+//     error.value = "Please provide email and password.";
+//     return;
+//   }
 
-  if (!email.value || !password.value) {
-    error.value = "Please provide email and password.";
-    return;
-  }
+//   try {
+//     console.log("submitting", email.value, password.value);
+//     const res = await api.post("/api/auth/login", {
+//       email: email.value,
+//       password: password.value,
+//     });
 
-  try {
-    const res = await api.post("/api/auth/login", {
-      email: email.value,
-      password: password.value,
-    });
+//     console.log("success", res);
+//     // ✅ THIS IS THE KEY FIX
+//     // auth.login(res.data.user, res.data.token);
+//     localStorage.setItem("token", res.data.result.token);
+//     localStorage.setItem("user", JSON.stringify(res.data.result.user));
 
-    const { user, token } = res.data;
+//     router.push("/dashboard");
 
-    localStorage.setItem("token", token);
-    localStorage.setItem("user", JSON.stringify(user));
+    
 
-    // 🔐 ROLE-BASED REDIRECT
-    if (user.role === "ROLE_ADMIN") {
-      router.push("/dashboard");
-    } else {
-      router.push("/"); // or "/menu"
-    }
+//     close();
+//   } catch (e) {
+//     error.value = e.response?.data?.message || "Failed to login.";
+//   }
+// };
 
-    close();
-  } catch (e) {
-    error.value = "Failed to login.";
-  }
-};
 
 </script>
