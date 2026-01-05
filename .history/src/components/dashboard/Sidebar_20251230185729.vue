@@ -16,3 +16,7 @@
 const user = JSON.parse(localStorage.getItem('user'))
 const isAdmin = user?.role === 'ROLE_ADMIN'
 </script>
+
+<li v-if="isAdmin">Dashboard</li>
+<li v-if="isAdmin">Users</li>
+

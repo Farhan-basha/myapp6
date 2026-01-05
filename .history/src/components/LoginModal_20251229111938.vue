@@ -31,8 +31,8 @@
         </form>
 
         <div class="mt-4 text-sm text-gray-600">
-          <!-- <a href="#" @click.prevent="openForgot">Forgot password?</a> -->
-          <!-- <span class="mx-2">•</span> -->
+          <a href="#" @click.prevent="openForgot">Forgot password?</a>
+          <span class="mx-2">•</span>
           <a href="#" @click.prevent="openSignup">Create account</a>
         </div>
       </div>

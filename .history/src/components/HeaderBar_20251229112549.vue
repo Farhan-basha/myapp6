@@ -15,7 +15,7 @@
       <!-- NAV LINKS -->
       <nav class="hidden md:flex gap-8 text-sm text-gray-700 font-medium">
         <RouterLink class="hover:text-olive cursor-pointer rounded hover:bg-gray-300" to="/">Home</RouterLink>
-        <RouterLink class="hover:text-olive cursor-pointer rounded hover:bg-gray-300" to="/about">About</RouterLink>
+        <RouterLink class="hover:text-olive cursor-pointer  hover:bg-gray-300" to="/about">About</RouterLink>
         <RouterLink class="hover:text-olive cursor-pointer rounded hover:bg-gray-300" to="/menu">Menu</RouterLink>
 
         <!-- 🔐 ADMIN ONLY -->

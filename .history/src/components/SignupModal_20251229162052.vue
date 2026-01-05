@@ -32,7 +32,7 @@
 </template>
 
 
-<!-- <script setup>
+<script setup>
 import { ref, computed } from 'vue'
 import { modal, closeModal, openLogin } from '../store/ui.js'
 
@@ -74,68 +74,17 @@ async function signup(name, email, password) {
     return res.data;
 }
 
-</script> -->
-
-<script setup>
-import { ref, computed } from 'vue'
-import { modal, closeModal, openLogin } from '../store/ui.js'
-import api from '@/api/axios'
-
-// form state
-const name = ref('')
-const email = ref('')
-const password = ref('')
-const error = ref(null)
-const loading = ref(false)
-
-// modal state
-const isOpen = computed(() => modal.value.name === 'signup')
-
-function close() {
-  closeModal()
-}
-
-// submit handler
-const submit = async () => {
-  error.value = null
-
-  // basic validation
-  if (!name.value || !email.value || !password.value) {
-    error.value = 'Please fill all fields.'
-    return
-  }
-
-  loading.value = true
-
-  try {
-    await signup(
-      name.value.trim(),
-      email.value.trim().toLowerCase(),
-      password.value
-    )
-
-    alert('Account created successfully!')
-    close()
-    openLogin() // redirect back to login modal
-  } catch (e) {
-    // ✅ handles duplicate user (409) + other backend errors
-    error.value =
-      e.response?.data?.message ||
-      (e.response?.status === 409
-        ? 'User already exists with this email.'
-        : 'Failed to create account.')
-  } finally {
-    loading.value = false
-  }
-}
-
-// API call
-async function signup(name, email, password) {
-  const res = await api.post('/api/auth/register', {
-    name,
-    email,
-    password,
+try {
+  await api.post("/api/auth/signup", {
+    email: email.value,
+    password: password.value
   })
-  return res.data
+
+  alert("Signup successful")
+} catch (err) {
+  error.value =
+    err.response?.data?.message || "User already exists"
 }
+
+
 </script>

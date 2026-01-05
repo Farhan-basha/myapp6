@@ -28,7 +28,6 @@
 </template>
 
 <script setup>
-  
 import { ref, onMounted } from 'vue'
 import api from '@/api/axios'
 
@@ -38,6 +37,7 @@ onMounted(async () => {
   const res = await api.get('/api/admin/orders/recent')
   orders.value = res.data
 })
+
 
 const props = defineProps({ orders: Array })
 

@@ -6,7 +6,7 @@
       <a class="block px-3 py-2 rounded hover:bg-gray-50" href="#">Orders</a>
       <a class="block px-3 py-2 rounded hover:bg-gray-50" href="#">Menu</a>
       <a class="block px-3 py-2 rounded hover:bg-gray-50" href="#">Rewards</a>
-      <a class="block px-3 py-2 rounded hover:bg-gray-50" v-if="isAdmin" href="#">Users</a>
+      <a class="block px-3 py-2 rounded hover:bg-gray-50"  href="#">Users</a>
       <a class="block px-3 py-2 rounded hover:bg-gray-50" href="#">Settings</a>
     </nav>
   </aside>
@@ -16,3 +16,7 @@
 const user = JSON.parse(localStorage.getItem('user'))
 const isAdmin = user?.role === 'ROLE_ADMIN'
 </script>
+
+<li v-if="isAdmin">Dashboard</li>
+<li v-if="isAdmin">Users</li>
+

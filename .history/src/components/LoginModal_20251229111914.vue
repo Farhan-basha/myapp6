@@ -22,17 +22,17 @@
             <button type="submit" class="bg-brandRed text-white px-4 py-2 rounded">
               Sign in
             </button>
-            <button type="button" class="text-sm text-gray-600" @click="close">
+            <!-- <button type="button" class="text-sm text-gray-600" @click="close">
               Cancel
-            </button>
+            </button> -->
           </div>
 
           <p v-if="error" class="text-xs text-red-600 mt-3">{{ error }}</p>
         </form>
 
         <div class="mt-4 text-sm text-gray-600">
-          <!-- <a href="#" @click.prevent="openForgot">Forgot password?</a> -->
-          <!-- <span class="mx-2">•</span> -->
+          <a href="#" @click.prevent="openForgot">Forgot password?</a>
+          <span class="mx-2">•</span>
           <a href="#" @click.prevent="openSignup">Create account</a>
         </div>
       </div>
