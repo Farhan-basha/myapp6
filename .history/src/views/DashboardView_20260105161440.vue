@@ -101,6 +101,79 @@
   </div>
 </template>
 
+<!-- <script setup>
+import { ref, computed } from 'vue'
+import Sidebar from '@/components/dashboard/Sidebar.vue'
+import Topbar from '@/components/dashboard/Topbar.vue'
+import StatCard from '@/components/dashboard/StatCard.vue'
+import MiniTrend from '@/components/dashboard/MiniTrend.vue'
+import OrdersTable from '@/components/dashboard/OrdersTable.vue'
+
+import { onMounted, ref } from 'vue'
+import api from '@/api/axios'
+
+const stats = ref(null)
+
+onMounted(async () => {
+  const res = await api.get('/api/admin/dashboard/stats')
+  stats.value = res.data
+})
+
+
+// sample/mock data
+// const stats = {
+//   revenue: 12540.75,
+//   revenueTrend: [800, 1100, 1250, 1000, 1400, 1700, 1500],
+//   orders: 324,
+//   ordersTrend: [30, 40, 45, 35, 50, 60, 64],
+//   activeUsers: 1210,
+//   usersTrend: [1000, 1020, 1100, 1150, 1170, 1200, 1210],
+//   redeemed: 78,
+//   redeemedTrend: [5, 8, 6, 7, 10, 12, 30]
+// }
+
+onMounted(async () => {
+  const res = await api.get('/api/admin/dashboard')
+  stats.value = res.data
+})
+
+
+const rewards = {
+  totalPoints: 12450,
+  members: 421,
+  topReward: '50% off coupon'
+}
+
+const orders = ref([
+  { id: 'ORD-1001', customer: 'Alice', date: '2025-11-22', items: 3, total: 29.5, status: 'Delivered' },
+  { id: 'ORD-1002', customer: 'Bob', date: '2025-11-23', items: 1, total: 9.99, status: 'Preparing' },
+  { id: 'ORD-1003', customer: 'Carlos', date: '2025-11-23', items: 2, total: 21.75, status: 'Pending' },
+  { id: 'ORD-1004', customer: 'Dana', date: '2025-11-23', items: 4, total: 45.5, status: 'Delivered' },
+  { id: 'ORD-1005', customer: 'Eve', date: '2025-11-24', items: 2, total: 18.25, status: 'Cancelled' }
+])
+
+const recentActivity = [
+  { icon: '🎉', title: 'New reward created: 25% off', time: '2 hours ago' },
+  { icon: '🔔', title: 'Order ORD-1004 marked as Delivered', time: '4 hours ago' },
+  { icon: '👤', title: 'New user signed up: frank@example.com', time: '1 day ago' }
+]
+
+const search = ref('')
+const filterStatus = ref('')
+
+const filteredOrders = computed(() =>
+  orders.value.filter(o => {
+    const matchStatus = filterStatus.value ? o.status === filterStatus.value : true
+    const q = search.value.trim().toLowerCase()
+    const matchSearch = !q || o.id.toLowerCase().includes(q) || o.customer.toLowerCase().includes(q)
+    return matchStatus && matchSearch
+  })
+)
+
+function formatCurrency(n) {
+  return '₹ ' + n.toLocaleString(undefined, { minimumFractionDigits: 2 })
+}
+</script> -->
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
@@ -111,7 +184,7 @@ import Topbar from '@/components/dashboard/Topbar.vue'
 import StatCard from '@/components/dashboard/StatCard.vue'
 import MiniTrend from '@/components/dashboard/MiniTrend.vue'
 import OrdersTable from '@/components/dashboard/OrdersTable.vue'
-// import Orders from '@/components/dashboard/Orders.vue'
+import Orders from '@/components/dashboard/Orders.vue'
 
 // --------------------
 // STATE

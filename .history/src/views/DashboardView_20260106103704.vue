@@ -111,7 +111,7 @@ import Topbar from '@/components/dashboard/Topbar.vue'
 import StatCard from '@/components/dashboard/StatCard.vue'
 import MiniTrend from '@/components/dashboard/MiniTrend.vue'
 import OrdersTable from '@/components/dashboard/OrdersTable.vue'
-// import Orders from '@/components/dashboard/Orders.vue'
+import Orders from '@/components/dashboard/Orders.vue'
 
 // --------------------
 // STATE
