@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import LoginPage from "../views/LoginPage.vue";
-import Home from "../views/Home.vue";
-import About from "../views/About.vue";
-import Menu from "../components/menu/Menu.vue";
-import Contact from "../views/Contact.vue";
+import LoginPage from "../components/LoginPage.vue";
+import Home from "../components/Home.vue";
+import About from "../components/About.vue";
+import Menu from "../components/Menu.vue";
+import Contact from "../components/Contact.vue";
 import DashboardView from "@/views/DashboardView.vue";
 // import DashboardView from "../components/dashboard/DashboardView.vue";
 import Orders from "../components/dashboard/Orders.vue";

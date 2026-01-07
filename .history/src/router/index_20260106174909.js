@@ -1,16 +1,16 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import LoginPage from "../views/LoginPage.vue";
-import Home from "../views/Home.vue";
-import About from "../views/About.vue";
-import Menu from "../components/menu/Menu.vue";
-import Contact from "../views/Contact.vue";
+import LoginPage from "../components/LoginPage.vue";
+import Home from "../components/Home.vue";
+import About from "../components/About.vue";
+import Menu from "../components/Menu.vue";
+import Contact from "../components/Contact.vue";
 import DashboardView from "@/views/DashboardView.vue";
-// import DashboardView from "../components/dashboard/DashboardView.vue";
-import Orders from "../components/dashboard/Orders.vue";
-import MenuAdmin from "../components/dashboard/Menu.vue";
-import Users from "../components/dashboard/User.vue";
-import Settings from "../components/dashboard/Settings.vue";
+import Orders from "@/views/dashboard/OrdersView.vue"
+import Menu from "@/views/dashboard/MenuView.vue"
+import Rewards from "@/views/dashboard/RewardsView.vue"
+import UsersVfrom "@/views/dashboard/UsersView.vue"
+import SettingsView from "@/views/dashboard/SettingsView.vue"
 
 const routes = [
   {
@@ -48,34 +48,6 @@ const routes = [
     path: "/dashboard",
     component: DashboardView,
     meta: { requiresAdmin: true },
-  },
-  {
-    path: "/dashboard",
-    component: DashboardView,
-    meta: { requiresAuth: true },
-    children: [
-      {
-        path: "",
-        redirect: "/dashboard/orders",
-      },
-      {
-        path: "orders",
-        component: Orders,
-      },
-      {
-        path: "menu",
-        component: MenuAdmin,
-      },
-      {
-        path: "users",
-        component: Users,
-        meta: { requiresAdmin: true },
-      },
-      {
-        path: "settings",
-        component: Settings,
-      },
-    ],
   },
 ];
 

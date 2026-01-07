@@ -108,9 +108,8 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import api from '@/api/axios'
-// import Sidebar from "./Sidebar.vue"
 
-import Sidebar from '@/components/common/Sidebar.vue'
+import Sidebar from '@/components/dashboard/Sidebar.vue'
 import Topbar from '@/components/dashboard/Topbar.vue'
 import StatCard from '@/components/dashboard/StatCard.vue'
 import MiniTrend from '@/components/dashboard/MiniTrend.vue'
