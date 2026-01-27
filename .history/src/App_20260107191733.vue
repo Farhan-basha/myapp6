@@ -19,10 +19,10 @@
 </template>
 
 <script setup>
-import TopBar from './components/common/TopBar.vue'
+import TopBar from '../components/common/TopBar.vue'
 import HeaderBar from './components/common/HeaderBar.vue'
 import Footer from './components/common/Footer.vue'
-import LoginModal from './components/auth/LoginModal.vue'
-import SignupModal from './components/auth/SignupModal.vue'
-import ForgotPasswordModal from './components/auth/ForgotPasswordModal.vue'
+import LoginModal from './components/LoginModal.vue'
+import SignupModal from './components/SignupModal.vue'
+import ForgotPasswordModal from './components/ForgotPasswordModal.vue'
 </script>

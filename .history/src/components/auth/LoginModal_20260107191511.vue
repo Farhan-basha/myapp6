@@ -42,7 +42,7 @@
 
 <script setup>
 import { ref, computed } from "vue";
-import { modal, closeModal, openSignup, openForgot } from "../../store/ui.js";
+import { modal, closeModal, openSignup, openForgot } from "../..";
 import { useAuthStore } from "@/store/auth";
 import api from "@/api/axios";
 import router from "@/router";

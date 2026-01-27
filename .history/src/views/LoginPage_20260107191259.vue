@@ -13,7 +13,7 @@ import { loginUser } from "@/api/auth";
 
 import { onMounted } from 'vue'
 import { openLogin } from '@/store/ui'
-import LoginModal from '../components/auth/LoginModal.vue'
+import LoginModal from '..components/auth/LoginModal.vue'
 
 onMounted(() => {
   openLogin()

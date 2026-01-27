@@ -27,7 +27,7 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import { modal, closeModal, openLogin } from '../../store/ui.js'
+import { modal, closeModal, openLogin } from '../..'
 
 const email = ref('')
 const message = ref(null)

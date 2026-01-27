@@ -78,7 +78,7 @@ async function signup(name, email, password) {
 
 <script setup>
 import { ref, computed } from 'vue'
-import { modal, closeModal, openLogin } from '../../store/ui.js'
+import { modal, closeModal, openLogin } from '../store/ui.js'
 import api from '@/api/axios'
 
 // form state
